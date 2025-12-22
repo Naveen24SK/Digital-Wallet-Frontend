@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
   /* padding: 2rem; */
   text-align: center;
 }
@@ -38,6 +38,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .layout-body {

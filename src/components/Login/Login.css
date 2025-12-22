@@ -1,10 +1,54 @@
 .login-container {
-  width: 350px;
-  margin: 100px auto;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-icon {
+  font-size: 64px !important;
+  color: #667eea;
+  margin-bottom: 16px;
+}
+
+.login-title {
+  margin-bottom: 8px !important;
+  font-weight: 700;
+}
+
+.login-form .MuiTextField-root {
+  margin-bottom: 16px !important;
+}
+
+.login-btn {
+  background: linear-gradient(45deg, #667eea 30%, #764ba2 90%) !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.register-link {
+  color: #667eea !important;
+  font-weight: 600;
+}
+
+.register-link:hover {
+  color: #764ba2 !important;
 }

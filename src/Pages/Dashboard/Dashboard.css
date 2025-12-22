@@ -1,0 +1,318 @@
+.dashboard-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding-bottom: 40px;
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  background: white;
+  padding: 24px 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-avatar {
+  width: 56px !important;
+  height: 56px !important;
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+.welcome-text {
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #1a237e, #3f51b5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 !important;
+}
+
+.subtitle {
+  color: #666;
+  font-weight: 500;
+}
+
+.refresh-btn {
+  border-radius: 25px !important;
+  padding: 8px 24px !important;
+  text-transform: none !important;
+}
+
+/* Setup Cards */
+.setup-card {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  border-radius: 28px;
+  padding: 60px 48px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.success-gradient {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.setup-icon {
+  font-size: 90px !important;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+.primary-icon { color: rgba(255,255,255,0.9) !important; }
+.success-icon { color: rgba(255,255,255,0.9) !important; }
+
+.setup-title {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  margin-bottom: 16px !important;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.setup-description {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.account-creation-form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.account-name-input .MuiOutlinedInput-root {
+  border-radius: 20px !important;
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(20px);
+}
+
+.input-hint {
+  display: block;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+.setup-action-btn {
+  background: rgba(255,255,255,0.95) !important;
+  color: #1a237e !important;
+  border-radius: 50px !important;
+  padding: 18px 48px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.setup-action-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+}
+
+.success-btn {
+  background: rgba(255,255,255,0.95) !important;
+  color: #059669 !important;
+}
+
+/* Account Details Card */
+.account-details-card {
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 32px;
+  margin: 32px 0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.rupee-icon {
+  color: #10b981 !important;
+  font-size: 28px !important;
+}
+
+.account-number {
+  font-family: 'Monaco', 'Menlo', monospace !important;
+  letter-spacing: 2px;
+}
+
+.balance-chip {
+  height: 44px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+/* Main Dashboard */
+.dashboard-content {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.balances-row {
+  margin-bottom: 32px;
+}
+
+.balance-card {
+  height: 280px;
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.balance-card:hover {
+  transform: translateY(-8px);
+}
+
+.bank-card { background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border: 1px solid #667eea20; }
+.wallet-card { background: linear-gradient(135deg, #10b98115 0%, #05966915 100%); border: 1px solid #10b98120; }
+
+.balance-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.balance-icon {
+  font-size: 36px !important;
+}
+
+.blue { color: #667eea !important; }
+.green { color: #10b981 !important; }
+
+.balance-amount {
+  font-size: 48px !important;
+  font-weight: 900 !important;
+  background: linear-gradient(135deg, #1a237e, #3f51b5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px !important;
+  line-height: 1.1;
+}
+
+.balance-label {
+  color: #666;
+  font-weight: 600;
+}
+
+.balance-progress {
+  border-radius: 12px !important;
+  height: 8px !important;
+  background: rgba(255,255,255,0.3) !important;
+  border-radius: 12px;
+}
+
+.actions-card {
+  padding: 40px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+}
+
+.action-btn {
+  border-radius: 16px !important;
+  padding: 16px 24px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  height: 64px !important;
+  transition: all 0.3s ease !important;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15) !important;
+}
+
+.primary { background: linear-gradient(135deg, #667eea, #764ba2) !important; }
+.secondary { background: linear-gradient(135deg, #f093fb, #f5576c) !important; }
+.outline { border: 2px solid #e0e0e0 !important; }
+
+.stat-card {
+  height: 160px;
+  padding: 32px 24px;
+  border-radius: 20px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  font-size: 40px !important;
+  margin-bottom: 16px;
+}
+
+.growth { color: #10b981 !important; }
+.history { color: #f59e0b !important; }
+.account { color: #667eea !important; }
+
+.stat-value {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #1a237e, #3f51b5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 24px;
+}
+
+.loading-container .MuiCircularProgress-root {
+  color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container { padding: 16px; }
+  .setup-card { padding: 40px 24px; margin-bottom: 40px; }
+  .balance-amount { font-size: 36px !important; }
+  .action-btn { height: 56px !important; font-size: 14px !important; }
+}

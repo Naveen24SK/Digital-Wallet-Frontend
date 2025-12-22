@@ -1,57 +1,122 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { Container, Typography, Box, Alert, Link } from "@mui/material";
+import { Login as LoginIcon } from "@mui/icons-material";
 import API from "../../utils/api";
-import { TextField, Button, Typography, Box } from "@mui/material";
+
+import CustomTextField from "../../components/Ui/CustomTextField";
+import PrimaryButton from "../../components/Ui/PrimaryButton";
 import "./login.css";
 
 const Login = () => {
-  const navigate = useNavigate();   
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     username: "",
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setError("");
   };
 
   const handleLogin = async () => {
+    if (!form.username || !form.password) {
+      setError("Please fill all fields");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
     try {
       const res = await API.post("/auth/login", form);
 
-      // OPTIONAL: store user info
+      // ✅ CORRECT STORAGE
+      localStorage.setItem("userId", res.data.userId);
       localStorage.setItem("username", res.data.username);
+      localStorage.setItem("token", res.data.token);
 
-      navigate("/app/dashboard");   // ✅ IMPORTANT
+      console.log("✅ Login Success:", res.data);
+
+      navigate("/app/dashboard");
     } catch (err) {
-      alert("Invalid credentials");
+      console.error("Login Error:", err);
+      setError(err.response?.data || "Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") handleLogin();
+  };
+
   return (
-    <Box className="login-container">
-      <Typography variant="h5">Login</Typography>
+    <Container maxWidth="sm">
+      <Box className="login-container">
+        <Box className="login-card">
+          <LoginIcon sx={{ fontSize: 64, mb: 2 }} />
+          
+          <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
+            Welcome Back
+          </Typography>
+          <Typography sx={{ color: "text.secondary", mb: 4 }}>
+            Sign in to your wallet account
+          </Typography>
 
-      <TextField
-        label="Username"
-        name="username"
-        onChange={handleChange}
-        fullWidth
-      />
+          {error && (
+            <Alert severity="error" sx={{ mb: 3 }}>
+              {error}
+            </Alert>
+          )}
 
-      <TextField
-        label="Password"
-        type="password"
-        name="password"
-        onChange={handleChange}
-        fullWidth
-      />
+          <CustomTextField
+            label="Username"
+            name="username"
+            value={form.username}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            autoComplete="username"
+            sx={{ mb: 3 }}
+          />
 
-      <Button variant="contained" onClick={handleLogin}>
-        Login
-      </Button>
-    </Box>
+          <CustomTextField
+            label="Password"
+            type="password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            autoComplete="current-password"
+            sx={{ mb: 3 }}
+          />
+
+          <PrimaryButton
+            fullWidth
+            onClick={handleLogin}
+            loading={loading}
+            disabled={loading}
+            sx={{ mb: 3 }}
+          >
+            Sign In
+          </PrimaryButton>
+
+          <Box sx={{ textAlign: "center" }}>
+            <Typography variant="body2">
+              Don't have an account?{" "}
+              <Link component={RouterLink} to="/register" underline="hover">
+                Sign up here
+              </Link>
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 
