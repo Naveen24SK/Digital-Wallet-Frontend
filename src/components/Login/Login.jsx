@@ -63,7 +63,7 @@ const Login = () => {
           <LoginIcon sx={{ fontSize: 64, mb: 2 }} />
           
           <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
-            Welcome Back
+            Welcome Digi Wallet
           </Typography>
           <Typography sx={{ color: "text.secondary", mb: 4 }}>
             Sign in to your wallet account

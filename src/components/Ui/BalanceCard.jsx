@@ -23,7 +23,7 @@ const BalanceCard = forwardRef(({
       className={`balance-card ${className}`}
       elevation={0}
       sx={{
-        height: "280px",
+        // height: "280px",
         borderRadius: "24px !important",
         padding: "40px 32px",
         textAlign: "center",

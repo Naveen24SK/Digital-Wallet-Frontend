@@ -1,22 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Grid,
-  Box,
-  Typography,
-  Avatar,
-  Paper
-} from "@mui/material";
-import {
-  AccountBalanceWallet,
-  Wallet as WalletIcon,
-  Add,
-  Send,
-  History,
-  Person,
-  TrendingUp
-} from "@mui/icons-material";
-
+import { Grid, Box, Typography, Avatar, Paper} from "@mui/material";
+import { AccountBalanceWallet, Wallet as WalletIcon, Add, Send, History, Person, TrendingUp} from "@mui/icons-material";
 import API from "../../utils/api";
 
 // UI Components
@@ -46,6 +31,8 @@ const Dashboard = () => {
   useEffect(() => {
     fetchUserData();
   }, []);
+
+  
 
   // ----------------------------------
   // FETCH ACCOUNT & WALLET
@@ -134,16 +121,16 @@ const fetchUserData = async () => {
 
   return (
     <Box sx={{ background: "linear-gradient(135deg, #f5f7fa, #c3cfe2)"  }}>
-      <Box sx={{ maxWidth: "1400px", mx: "auto", p: 3 }}>
+      <Box sx={{ maxWidth: "1400px", mx: "auto", p: 2, height: "87vh" }}>
 
         {/* HEADER */}
         <Box sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          mb: 5,
+          mb: 2,
           background: "white",
-          p: 3,
+          p: 2,
           borderRadius: "20px",
           boxShadow: "0 10px 40px rgba(0,0,0,0.08)"
         }}>
@@ -208,12 +195,12 @@ const fetchUserData = async () => {
         {/* STEP 3: READY DASHBOARD */}
         {step === "ready" && account && wallet && (
           <>
-            <Grid container spacing={3} sx={{ mb: 4 }}>
+            <Grid container spacing={3} sx={{ mb: 2 }}>
               <Grid item xs={12} md={6}>
                 <BalanceCard
                   title="Bank Account"
                   balance={account.balance}
-                  subtitle={`${account.accountHolderName} • ${account.accountNumber.slice(-4)}`}
+                  subtitle={`${account.accountHolderName} • ${account.accountNumber}`}
                   icon={AccountBalanceWallet}
                   color="primary"
                 />

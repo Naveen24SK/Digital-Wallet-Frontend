@@ -28,16 +28,16 @@
 }
 
 .user-avatar {
-  width: 56px !important;
-  height: 56px !important;
-  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  width: 56px ;
+  height: 56px ;
+  background: linear-gradient(135deg, #667eea, #764ba2) ;
 }
 
 .welcome-text {
   font-weight: 800 !important;
   background: linear-gradient(135deg, #1a237e, #3f51b5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
   margin: 0 !important;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .balance-card {
-  height: 280px;
+  /* height: 280px; */
   border-radius: 24px;
   padding: 40px 32px;
   text-align: center;
@@ -220,8 +220,8 @@
   font-size: 48px !important;
   font-weight: 900 !important;
   background: linear-gradient(135deg, #1a237e, #3f51b5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
   margin-bottom: 8px !important;
   line-height: 1.1;
 }
@@ -291,8 +291,8 @@
   font-size: 32px !important;
   font-weight: 800 !important;
   background: linear-gradient(135deg, #1a237e, #3f51b5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 
 /* Loading */

@@ -48,7 +48,8 @@
 
 .layout-content {
   flex: 1;
-  padding: 24px;
+  /* padding: 24px; */
   color: black;
   background: #f4f6f8;
+  overflow-y: auto;
 }

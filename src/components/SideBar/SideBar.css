@@ -22,7 +22,11 @@
 }
 
 .sidebar li:hover {
-  background: #f0f0f0;
+  /* background: #f0f0f0; */
+    transform: translateY(-4px);
+    color: blueviolet;
+    font-weight: 600;
+    font-size: large;
 }
 
 .logout {

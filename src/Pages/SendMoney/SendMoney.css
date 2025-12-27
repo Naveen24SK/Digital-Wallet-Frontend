@@ -1,20 +1,16 @@
-.addmoney-container {
+.sendmoney-container {
   min-height: 100vh;
   padding: 24px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
 }
 
-.addmoney-card {
-  width: 100%;
-  max-width: 480px;
+.sendmoney-card {
+  max-width: 520px;
+  margin: 0 auto;
   padding: 40px;
   border-radius: 28px;
   box-shadow: 0 25px 60px rgba(0,0,0,0.15);
   backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.95);
 }
 
 .header {
@@ -27,31 +23,33 @@
 .title {
   margin: 0 !important;
   font-weight: 800 !important;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #f59e0b, #f97316);
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
   flex: 1;
 }
 
-.balances-overview {
-  display: flex;
-  justify-content: space-around;
-  gap: 24px;
-  margin-bottom: 32px;
+.wallet-balance {
+  text-align: center;
   padding: 24px;
-  background: linear-gradient(135deg, #667eea15, #10b98115);
+  background: linear-gradient(135deg, #10b98115, #05966920);
   border-radius: 20px;
-}
-
-.balance-item {
+  margin-bottom: 32px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
-.balance-item .MuiAvatar-root {
-  width: 48px !important;
-  height: 48px !important;
+.search-section {
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+
+.receiver-found {
+  margin-top: 16px;
 }
 
 .content {
@@ -69,6 +67,6 @@
 }
 
 @media (max-width: 600px) {
-  .addmoney-card { padding: 24px; margin: 16px; }
-  .balances-overview { flex-direction: column; gap: 16px; }
+  .sendmoney-card { padding: 24px; margin: 16px; }
+  .search-section { padding: 20px; }
 }
