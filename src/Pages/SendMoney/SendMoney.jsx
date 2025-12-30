@@ -45,14 +45,17 @@ const senderId = localStorage.getItem("userId");
     fetchWalletBalance();
   }, []);
 
-  const fetchWalletBalance = async () => {
-    try {
-      const res = await API.get(`/wallet/${walletId}`);
-      setWalletBalance(res.data.balance || 0);
-    } catch {
-      setWalletBalance(0);
-    }
-  };
+const fetchWalletBalance = async () => {
+  try {
+    const userId = localStorage.getItem("userId");
+    const res = await API.get(`/wallet/by-user/${userId}`);
+    setWalletBalance(res.data.balance || 0);
+    localStorage.setItem("walletId", res.data.id);
+  } catch {
+    setWalletBalance(0);
+  }
+};
+
 
   const searchReceiver = async () => {
     if (!form.receiverAccountNumber || !form.receiverName) {
@@ -103,7 +106,7 @@ const senderId = localStorage.getItem("userId");
         senderWalletId: parseInt(walletId),
         receiverAccountNumber: form.receiverAccountNumber,
         amount: amt,
-        category: form.category,
+  category: form.category.toUpperCase(),
         purpose: form.purpose
       });
       

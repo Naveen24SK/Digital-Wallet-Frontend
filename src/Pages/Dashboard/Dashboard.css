@@ -35,7 +35,6 @@
 
 .welcome-text {
   font-weight: 800 !important;
-  background: linear-gradient(135deg, #1a237e, #3f51b5);
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
   margin: 0 !important;
@@ -315,4 +314,54 @@
   .setup-card { padding: 40px 24px; margin-bottom: 40px; }
   .balance-amount { font-size: 36px !important; }
   .action-btn { height: 56px !important; font-size: 14px !important; }
+}
+
+/* Add to existing Dashboard.css */
+.analytics-section {
+  border-radius: 24px !important;
+}
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.MuiTabs-root {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+}
+
+.MuiTab-root {
+  font-weight: 600 !important;
+  text-transform: none !important;
+  padding: 16px 24px !important;
+}
+
+.Mui-selected {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: white !important;
+}
+
+/* Chart containers */
+.chart-container {
+  height: 400px;
+  border-radius: 16px;
+}
+
+.recharts-wrapper {
+  border-radius: 12px !important;
+}
+
+/* Stat cards */
+.stat-card {
+  height: 160px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
 }

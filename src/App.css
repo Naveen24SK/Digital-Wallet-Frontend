@@ -46,6 +46,13 @@
   flex: 1;
 }
 
+.layout-mask {
+  overflow-y: scroll;
+  flex: 1;
+  height: 92vh;
+  scrollbar-width: none;
+}
+
 .layout-content {
   flex: 1;
   /* padding: 24px; */

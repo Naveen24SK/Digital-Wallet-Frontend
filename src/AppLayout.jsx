@@ -26,8 +26,10 @@ const AppLayout = ({ children }) => {
       <Topbar toggleSidebar={() => setOpen(!open)} />
       <div className="layout-body">
         <Sidebar open={open} />
+        <div className="layout-mask">
         <div className="layout-content">
           <Outlet />
+                    </div>
         </div>
       </div>
     </div>

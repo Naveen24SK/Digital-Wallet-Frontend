@@ -1,33 +1,67 @@
-import SecondaryButton from "./SecondaryButton";
-import { forwardRef } from "react";
+import React from 'react';
+import { Button, Box } from '@mui/material';
 
-const ActionButton = forwardRef(({ 
+const ActionButton = ({ 
   children, 
-  icon: Icon,
-  variant = "contained",
-  color,
-  fullWidth,
-  className = "",
+  icon: Icon, 
+  fullWidth, 
+  variant = "contained", 
+  color = "primary",
+  className,
+  disabled,
+  onClick,
   ...props 
-}, ref) => (
-  <SecondaryButton
-    ref={ref}
-    variant={variant}
-    color={color}
-    fullWidth={fullWidth}
-    className={`action-btn ${className}`}
-    startIcon={<Icon />}
-    sx={{
-      height: "64px !important",
-      fontSize: "16px !important",
-      fontWeight: "700 !important",
-      ...props.sx
-    }}
-    {...props}
-  >
-    {children}
-  </SecondaryButton>
-));
+}) => {
+  return (
+    <Button
+      fullWidth={fullWidth}
+      variant={variant}
+      color={color}
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+      sx={{
+        height: { xs: 64, md: 72 },
+        borderRadius: 3,
+        fontSize: { xs: '1rem', md: '1.1rem' },
+        fontWeight: 700,
+        textTransform: 'none',
+        boxShadow: variant === 'contained' ? 3 : 1,
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: '-100%',
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+          transition: 'left 0.5s',
+        },
+        '&:hover::before': {
+          left: '100%',
+        },
+        ...props.sx
+      }}
+      startIcon={
+        Icon && (
+          <Box sx={{ 
+            fontSize: { xs: 24, md: 28 },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Icon />
+          </Box>
+        )
+      }
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+};
 
-ActionButton.displayName = "ActionButton";
 export default ActionButton;
