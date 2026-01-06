@@ -1,17 +1,19 @@
 import React from 'react';
-import { Button, Box } from '@mui/material';
+import { Button, Box, useTheme } from '@mui/material';
 
-const ActionButton = ({ 
-  children, 
-  icon: Icon, 
-  fullWidth, 
-  variant = "contained", 
+const ActionButton = ({
+  children,
+  icon: Icon,
+  fullWidth,
+  variant = "contained",
   color = "primary",
   className,
   disabled,
   onClick,
-  ...props 
+  ...props
 }) => {
+  const theme = useTheme();
+
   return (
     <Button
       fullWidth={fullWidth}
@@ -21,44 +23,34 @@ const ActionButton = ({
       disabled={disabled}
       onClick={onClick}
       sx={{
-        height: { xs: 64, md: 72 },
-        borderRadius: 3,
+        height: { xs: 64, md: 80 },
+        borderRadius: "20px",
         fontSize: { xs: '1rem', md: '1.1rem' },
         fontWeight: 700,
         textTransform: 'none',
-        boxShadow: variant === 'contained' ? 3 : 1,
+        flexDirection: 'column',
+        gap: 1,
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        position: 'relative',
-        overflow: 'hidden',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: '-100%',
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-          transition: 'left 0.5s',
-        },
-        '&:hover::before': {
-          left: '100%',
+        ...(variant === 'outlined' && {
+          borderWidth: '2px',
+          '&:hover': { borderWidth: '2px' }
+        }),
+        '&:hover': {
+          transform: 'translateY(-4px)',
+          boxShadow: theme.shadows[8]
         },
         ...props.sx
       }}
-      startIcon={
-        Icon && (
-          <Box sx={{ 
-            fontSize: { xs: 24, md: 28 },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <Icon />
-          </Box>
-        )
-      }
       {...props}
     >
+      {Icon && (
+        <Box sx={{
+          fontSize: 28,
+          mb: 0.5
+        }}>
+          <Icon fontSize="inherit" />
+        </Box>
+      )}
       {children}
     </Button>
   );

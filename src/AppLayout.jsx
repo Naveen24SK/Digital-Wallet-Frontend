@@ -1,39 +1,63 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Box, useTheme } from "@mui/material";
 import Sidebar from "./components/SideBar/SideBar";
 import Topbar from "./components/TopBar/TopBar";
 import "./App.css";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
-const AppLayout = ({ children }) => {
+const drawerWidth = 240;
+
+const AppLayout = () => {
   const navigate = useNavigate();
-  
+  const theme = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("token");
-    
-    // ✅ REDIRECT if not logged in
+
     if (!userId || !token) {
       navigate("/");
     }
   }, [navigate]);
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   return (
-    <div className="layout">
-    <div className="layout-root">
-      <Topbar toggleSidebar={() => setOpen(!open)} />
-      <div className="layout-body">
-        <Sidebar open={open} />
-        <div className="layout-mask">
-        <div className="layout-content">
+    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: 'background.default' }}>
+      {/* Sidebar for Desktop & Mobile */}
+      <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+
+      {/* Main Content */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh'
+        }}
+      >
+        <Topbar handleDrawerToggle={handleDrawerToggle} />
+
+        {/* Page Content Container */}
+        <Box
+          sx={{
+            mt: 3,
+            flexGrow: 1,
+            borderRadius: '24px',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
           <Outlet />
-                    </div>
-        </div>
-      </div>
-    </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

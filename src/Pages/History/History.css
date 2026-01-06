@@ -1,0 +1,98 @@
+.history-container {
+  min-height: 100vh;
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+@media (max-width: 768px) {
+  .history-container {
+    padding: 16px;
+  }
+}
+
+/* Table Customizations */
+.MuiTableRow-root {
+  transition: all 0.2s ease !important;
+}
+
+.MuiTableRow-root:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+.MuiTableCell-root {
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 16px 12px !important;
+  vertical-align: middle !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  border: none !important;
+  padding: 20px 16px !important;
+}
+
+/* Filter Cards */
+.filter-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.filter-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  border-color: #6366f1 !important;
+}
+
+/* Status Chips */
+.MuiChip-root {
+  font-weight: 600 !important;
+  height: 32px !important;
+}
+
+/* Pagination */
+.MuiTablePagination-root {
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Responsive Table */
+@media (max-width: 900px) {
+  .MuiTableCell-root {
+    padding: 12px 8px !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .MuiTableContainer-root {
+    overflow-x: auto !important;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Empty State */
+.empty-state {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-state svg {
+  font-size: 4rem;
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}

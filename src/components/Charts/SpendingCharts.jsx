@@ -98,7 +98,7 @@ const SpendingCharts = ({ analytics, walletId, period, loading, onRefresh }) => 
       <Grid container spacing={6}>
         {/* PIE CHART - Category Breakdown */}
         <Grid item xs={12} lg={7}>
-          <Paper sx={{ p: 6, height: 520, borderRadius: "20px", background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)' }}>
+          <Paper sx={{ p: 6, height: 520, borderRadius: "20px"}}>
             <Box sx={{ mb: 5 }}>
               <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, fontWeight: 700 }}>
                 <PieIcon color="primary" sx={{ fontSize: 32 }} />
@@ -141,7 +141,7 @@ const SpendingCharts = ({ analytics, walletId, period, loading, onRefresh }) => 
 
         {/* BAR CHART - Daily/Weekly Trend */}
         <Grid item xs={12} lg={5}>
-          <Paper sx={{ p: 6, height: 520, borderRadius: "20px", background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)' }}>
+          <Paper sx={{ p: 6, height: 520, borderRadius: "20px"}}>
             <Box sx={{ mb: 5 }}>
               <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, fontWeight: 700 }}>
                 <TrendingUp color="success" sx={{ fontSize: 32 }} />
