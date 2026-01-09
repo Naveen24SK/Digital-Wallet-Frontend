@@ -32,7 +32,7 @@ const Register = () => {
 
     setLoading(true);
     try {
-      await API.post("/api/auth/register", form);
+      await API.post("/auth/register", form);
       alert("Registered successfully! Please login.");
       navigate("/");
     } catch (err) {
