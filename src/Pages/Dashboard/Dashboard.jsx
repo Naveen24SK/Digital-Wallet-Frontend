@@ -126,7 +126,7 @@ const Dashboard = () => {
       console.log("✅ Min balance saved:", response.data);
       
       // Refresh wallet data
-      const walletRes = await API.get(`/apiwallet/by-user/${userId}`);
+      const walletRes = await API.get(`/api/wallet/by-user/${userId}`);
       setWallet(walletRes.data);
       
       // Success feedback

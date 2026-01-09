@@ -40,7 +40,12 @@ const Login = () => {
       navigate("/app/dashboard");
     } catch (err) {
       console.error("Login Error:", err);
-      setError(err.response?.data || "Invalid credentials");
+      setError(
+  err.response?.data?.message ||
+  err.response?.data?.error ||
+  "Invalid credentials"
+);
+
     } finally {
       setLoading(false);
     }
