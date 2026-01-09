@@ -57,7 +57,7 @@ const Dashboard = () => {
       console.log("🔍 Fetching user data for userId:", userId);
       
       try {
-        const accRes = await API.get(`/account/by-user/${userId}`);
+        const accRes = await API.get(`/api/account/by-user/${userId}`);
         setAccount(accRes.data);
         setStep("create-wallet");
       } catch (err) {
@@ -70,7 +70,7 @@ const Dashboard = () => {
       }
 
       try {
-        const walletRes = await API.get(`/wallet/by-user/${userId}`);
+        const walletRes = await API.get(`/api/wallet/by-user/${userId}`);
         const walletData = walletRes.data;
         setWallet(walletData);
         localStorage.setItem("walletId", walletData.id.toString());
@@ -100,7 +100,7 @@ const Dashboard = () => {
     if (!walletId) return;
     setAnalyticsLoading(true);
     try {
-      const res = await API.get(`/wallet/analytics/${walletId}?period=${period}`);
+      const res = await API.get(`/api/wallet/analytics/${walletId}?period=${period}`);
       setAnalytics(res.data);
     } catch (err) {
       console.error("Analytics fetch failed:", err);
@@ -119,7 +119,7 @@ const Dashboard = () => {
     try {
       console.log("💾 Saving min balance:", minBalance, "for wallet:", walletId);
       
-      const response = await API.put(`/wallet/${walletId}/min-balance`, {
+      const response = await API.put(`/api/wallet/${walletId}/min-balance`, {
         minBalance: parseFloat(minBalance)
       });
       
@@ -143,7 +143,7 @@ const Dashboard = () => {
     if (!accountHolderName.trim()) return;
     try {
       setLoading(true);
-      await API.post(`/account/create/${userId}`, null, {
+      await API.post(`/api/account/create/${userId}`, null, {
         params: { name: accountHolderName }
       });
       setAccountHolderName("");
@@ -157,7 +157,7 @@ const Dashboard = () => {
   const createWallet = async () => {
     try {
       setLoading(true);
-      await API.post(`/wallet/create/${userId}`);
+      await API.post(`/api/wallet/create/${userId}`);
       fetchUserData();
     } catch (err) {
       setError("Failed to create wallet");

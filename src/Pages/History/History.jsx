@@ -51,7 +51,7 @@ const History = () => {
         ...filters
       });
 
-      const response = await API.get(`/wallet/history/${walletId}?${params}`);
+      const response = await API.get(`/api/wallet/history/${walletId}?${params}`);
       setTransactions(response.data.content || []);
       setTotalCount(response.data.totalElements || 0);
     } catch (err) {

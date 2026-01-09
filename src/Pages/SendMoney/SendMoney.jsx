@@ -46,7 +46,7 @@ const SendMoney = () => {
   const fetchWalletBalance = async () => {
     try {
       const userId = localStorage.getItem("userId");
-      const res = await API.get(`/wallet/by-user/${userId}`);
+      const res = await API.get(`/api/wallet/by-user/${userId}`);
       setWalletBalance(res.data.balance || 0);
       localStorage.setItem("walletId", res.data.id);
     } catch {
@@ -63,7 +63,7 @@ const SendMoney = () => {
     setSearchLoading(true);
     setError("");
     try {
-      const res = await API.get("/account/search", {
+      const res = await API.get("/api/account/search", {
         params: {
           accountNumber: form.receiverAccountNumber,
           accountHolder: form.receiverName
@@ -98,7 +98,7 @@ const SendMoney = () => {
     setError("");
 
     try {
-      await API.post("/wallet/send-money", {
+      await API.post("/api/wallet/send-money", {
         senderWalletId: parseInt(walletId),
         receiverAccountNumber: form.receiverAccountNumber,
         amount: amt,

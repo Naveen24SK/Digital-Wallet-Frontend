@@ -39,11 +39,11 @@ const AddMoney = () => {
 
   const fetchBalances = async () => {
     try {
-      const walletRes = await API.get(`/wallet/by-user/${userId}`);
+      const walletRes = await API.get(`api/wallet/by-user/${userId}`);
       setWalletBalance(walletRes.data.balance);
       localStorage.setItem("walletId", walletRes.data.id);
 
-      const accRes = await API.get(`/account/by-user/${userId}`);
+      const accRes = await API.get(`/api/account/by-user/${userId}`);
       setAccountBalance(accRes.data.balance);
       localStorage.setItem("accountId", accRes.data.id);
     } catch (err) {
@@ -63,7 +63,7 @@ const AddMoney = () => {
     setError("");
 
     try {
-      const res = await API.post("/wallet/add-money", {
+      const res = await API.post("/api/wallet/add-money", {
         accountId: Number(localStorage.getItem("accountId")),
         walletId: Number(localStorage.getItem("walletId")),
         amount: amt
@@ -72,7 +72,7 @@ const AddMoney = () => {
       setSuccess(true);
       setWalletBalance(res.data.balance);
 
-      const accRes = await API.get(`/account/by-user/${userId}`);
+      const accRes = await API.get(`/api/account/by-user/${userId}`);
       setAccountBalance(accRes.data.balance);
 
       setAmount("");
