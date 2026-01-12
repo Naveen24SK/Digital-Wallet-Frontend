@@ -291,7 +291,7 @@ const Dashboard = () => {
               <BalanceCard
                 title="Bank Account"
                 balance={parseFloat(account.balance || 0)}
-                subtitle={`${account.accountHolderName} • ****${account.accountNumber?.slice(-4)}`}
+                subtitle={`${account.accountHolderName} • ${account.accountNumber}`}
                 icon={AccountBalanceWallet}
                 color="primary"
               />

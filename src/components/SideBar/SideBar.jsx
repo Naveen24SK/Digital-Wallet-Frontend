@@ -37,7 +37,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
       <Box sx={{ p: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
         <AccountBalanceWallet sx={{ fontSize: 40, color: theme.palette.primary.main }} />
         <Typography variant="h5" fontWeight="bold" color="primary">
-          Wallet
+          Digi Wallet
         </Typography>
       </Box>
       <Divider />
